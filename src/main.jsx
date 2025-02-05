@@ -10,7 +10,7 @@ import Portfolio from './screens/Portfolio/Portfolio.jsx'
 import Service from './screens/Services/Service.jsx'
 
 createRoot(root).render(
-  <BrowserRouter>
+  <BrowserRouter basename='/ken-portfolio/'>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path='/project' element={<Project/>}/>
