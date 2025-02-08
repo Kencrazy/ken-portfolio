@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
-  "homepage": "https://kencrazy.github.io/ken-portfolio/",
   "private": true,
+  "homepage":"https://kencrazy.github.io/ken-portfolio/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
