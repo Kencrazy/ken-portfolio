@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { screenElments } from './constant';
 import { Link, useLocation } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
+import { screenElements } from "../components/constant";
 
-function BottomNav() {
+export default function BottomNav() {
   const { pathname } = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -12,16 +12,17 @@ function BottomNav() {
     setIsMenuOpen((prev) => !prev);
   };
 
+  const serviceRelatedPaths = ['/services', '/list', '/service', '/detail'];
+
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900 bg-opacity-50 shadow-md rounded-full hidden sm:block z-2">
-        <div className="flex justify-between mx-5 p-2 relative gap-4 sm:gap-8">
-          {screenElments.map((item) => {
-            const isActive = pathname === item.path;
-            const isHovered = item.id === hoveredItem
-            console.log(isActive);
-            
+      <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900 bg-opacity-50 shadow-md rounded-full hidden sm:flex z-20">
+        <div className="flex justify-between mx-5 p-2 gap-4 sm:gap-8">
+          {screenElements.map((item) => {
+            const isActive = item.path === '/services' ? serviceRelatedPaths.includes(pathname) : pathname === item.path;
+            const isHovered = item.id === hoveredItem;
+
             return (
               <div
                 key={item.id}
@@ -44,7 +45,6 @@ function BottomNav() {
                   ></ion-icon>
                 </Link>
 
-                {/* Tooltip Pop-Up */}
                 <AnimatePresence>
                   {hoveredItem === item.id && (
                     <motion.div
@@ -66,9 +66,9 @@ function BottomNav() {
 
       {/* Mobile Menu Button */}
       <button
-        title="Add New"
+        title="Menu"
         onClick={toggleMenu}
-        className="z-2 group cursor-pointer sm:hidden outline-none hover:rotate-90 duration-300 fixed bottom-5 left-5"
+        className="z-20 group cursor-pointer sm:hidden outline-none hover:rotate-90 duration-300 fixed bottom-20 left-5"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -94,13 +94,19 @@ function BottomNav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.4 }}
-            className="absolute bottom-20 left-5 w-40 bg-gray-800 rounded-lg shadow-md p-2 sm:hidden z-2"
+            className="absolute bottom-28 left-5 w-40 bg-gray-800 rounded-lg shadow-md p-2 sm:hidden z-20"
           >
-            {screenElments.map((item) => (
+            {screenElements.map((item) => (
               <Link
                 key={item.id}
                 to={item.path}
-                className="flex items-center space-x-2 p-2 hover:bg-gray-700 rounded-lg"
+                className={`flex items-center space-x-2 p-2 hover:bg-gray-700 rounded-lg ${
+                  item.path === '/services' && serviceRelatedPaths.includes(pathname)
+                    ? 'bg-gray-700'
+                    : pathname === item.path
+                    ? 'bg-gray-700'
+                    : ''
+                }`}
               >
                 <ion-icon name={item.iconName} size="large" style={{ color: 'white' }}></ion-icon>
                 <span className="text-white">{item.name}</span>
@@ -112,5 +118,3 @@ function BottomNav() {
     </>
   );
 }
-
-export default BottomNav;

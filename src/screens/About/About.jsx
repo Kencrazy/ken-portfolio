@@ -25,19 +25,19 @@ const About = () => {
                         <img
                             src={avatar}
                             alt="Profile"
-                            className="rounded-full w-24 h-24 grayscale-25 object-cover"
+                            className="rounded-lg w-24  grayscale-25 "
                         />
                         <div>
                             <h2 className="text-2xl font-semibold">Hey again 👋</h2>
                             <p className="text-gray-400">
-                                I'm Lê Duy Lộc, you can call me Ken. I am working on digital experiences which are fun and positively impact on people/organizations.
+                                I'm AllSupportCode, you can call me Ken. I am working on digital experiences which are fun and positively impact on people/organizations.
                             </p>
                         </div>
                     </div>
 
                     {/* Skill Tags */}
                     <div className="mt-6 flex flex-wrap gap-2">
-                        {['Intermediate Coder', 'Web/Mobile Developer', 'Figma', 'Admin Page'].map((tag, index) => (
+                        {['Intermediate Coder', 'Web/Mobile Developer', 'API', 'React/React Native'].map((tag, index) => (
                             <span key={index} className="bg-green-600 text-white px-3 py-1 text-sm rounded-full">
                                 {tag}
                             </span>
@@ -88,20 +88,19 @@ const About = () => {
                     <div className="space-y-4">
                         <div className="flex items-center gap-4 cursor-pointer">
                             <Mail className="w-7 h-7 text-gray-400" />
-                            <span>lienquanaren@gmail.com</span>
+                            <span>astreamer377@gmail.com</span>
                         </div>
                         <div className="flex items-center gap-4 cursor-pointer">
                             <LucideGithub className="w-7 h-7 text-gray-400" />
-                            <a href='https://github.com/Kencrazy'>Kencrazy</a>
+                            <a href='https://github.com/AllSupportCode'>AllSupportCode</a>
                         </div>
                         <div className="flex items-center gap-4 cursor-pointer">
                             <Facebook className="w-7 h-7 text-gray-400" />
-                            <a href='https://www.facebook.com/Makakensa'>Ken Lê</a>
+                            <a href='https://www.facebook.com/profile.php?id=61558885425665'>Chiếc áo khoác</a>
                         </div>
                     </div>
                 </motion.section>
             </div>
-            <BottomNav />
         </>
     );
 };

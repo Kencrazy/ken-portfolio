@@ -1,11 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import emailjs from 'emailjs-com';
 import './styles.css';
 import phone from '../../assets/phone.png';
 import email from '../../assets/email.png';
 import shape from '../../assets/shape.png';
-import BottomNav from '../../components/bottomNav';
+import { useLocation } from 'react-router';
 
 function Contact() {
+    const formRef = useRef();
+    const [status, setStatus] = useState('');
+    const location = useLocation();
+    const { title } = location.state || {};
+
+    console.log(title)
+
     useEffect(() => {
         const inputs = document.querySelectorAll(".input");
 
@@ -26,7 +34,6 @@ function Contact() {
             input.addEventListener("blur", blurFunc);
         });
 
-        // Cleanup function to remove event listeners
         return () => {
             inputs.forEach((input) => {
                 input.removeEventListener("focus", focusFunc);
@@ -34,6 +41,49 @@ function Contact() {
             });
         };
     }, []);
+
+    const sendEmail = () => {
+        const form = formRef.current;
+        const name = form.name.value.trim();
+        const emailInput = form.email.value.trim();
+        const phone = form.phone.value.trim();
+        let message = form.message.value.trim();
+
+        if (!name || !emailInput || !message) {
+            setStatus('Please fill in all required fields.');
+            return;
+        }
+
+        if (!/^\S+@\S+\.\S+$/.test(emailInput)) {
+            setStatus('Please enter a valid email address.');
+            return;
+        }
+
+        // Append the title to the message if it exists
+        if (title) {
+            message = `Project: ${title}\n\n${message}`;
+        }
+
+        // Update the message field in the form before sending
+        form.message.value = message;
+
+        emailjs.sendForm(
+            'service_yov2ugm',
+            'template_ru68607',
+            formRef.current,
+            'F5_GmGdWEyv72pOU5'
+        ).then(
+            () => {
+                setStatus('Message sent successfully! I will contact you soon.');
+                formRef.current.reset();
+                const inputs = formRef.current.querySelectorAll(".input");
+                inputs.forEach((input) => input.parentNode.classList.remove("focus"));
+            },
+            () => {
+                setStatus('Failed to send message. Please try again.');
+            }
+        );
+    };
 
     return (
         <>
@@ -46,15 +96,14 @@ function Contact() {
                         <p className="text">
                             Feel free to reach out to me via email or phone. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                         </p>
-
                         <div className="info">
                             <div className="information">
-                                <img src={email} className="icon" alt="" />
-                                <p>lienquanaren@gmail.com</p>
+                                <img src={email} className="icon" alt="Email icon" />
+                                <p>astreamer377@gmail.com</p>
                             </div>
                             <div className="information">
-                                <img src={phone} className="icon" alt="" />
-                                <p>0869081579</p>
+                                <img src={phone} className="icon" alt="Phone icon" />
+                                <p>0862887787</p>
                             </div>
                         </div>
                     </div>
@@ -63,34 +112,40 @@ function Contact() {
                         <span className="circle one"></span>
                         <span className="circle two"></span>
 
-                        <form action="index.html" autoComplete="off">
-                            <h3 className="title">Contact me</h3>
+                        <form ref={formRef} autoComplete="off">
+                            <h3 className="title">Contact me {title ? `about ${title}` : ''}</h3>
                             <div className="input-container">
-                                <input type="text" name="name" className="input" />
+                                <input type="text" name="name" className="input" required />
                                 <label>Username</label>
                                 <span>Username</span>
                             </div>
                             <div className="input-container">
-                                <input type="email" name="email" className="input" />
+                                <input type="email" name="email" className="input" required />
                                 <label>Email</label>
                                 <span>Email</span>
                             </div>
                             <div className="input-container">
-                                <input type="tel" name="phone" className="input" />
+                                <input type="tel" name="phone" className="input" pattern="[0-9]*" />
                                 <label>Phone</label>
                                 <span>Phone</span>
                             </div>
                             <div className="input-container textarea">
-                                <textarea name="message" className="input"></textarea>
+                                <textarea name="message" className="input" required></textarea>
                                 <label>Message</label>
                                 <span>Message</span>
                             </div>
-                            <input type="submit" value="Send" className="btn" />
+                            <button type="button" onClick={sendEmail} className="btn">
+                                Send
+                            </button>
+                            {status && (
+                                <p className={`mt-2 ${status.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}>
+                                    {status}
+                                </p>
+                            )}
                         </form>
                     </div>
                 </div>
             </div>
-            <BottomNav />
         </>
     );
 }

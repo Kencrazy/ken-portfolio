@@ -25,7 +25,6 @@ function Portfolio() {
             <div className="box"><img src={img8}/></div>
         </div>
     </div>
-    <BottomNav/>
     </>
   )
 }

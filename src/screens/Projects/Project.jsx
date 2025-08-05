@@ -7,6 +7,7 @@ import tht from '../../assets/tht.png'
 import hackathon from '../../assets/hackathon.png'
 import robotic from '../../assets/robotic.png'
 import hkico from '../../assets/hkico.png'
+import khkt from '../../assets/khoahoc.jpg'
 
 function Project() {
   const sliderWrapperRef = useRef(null);
@@ -36,7 +37,7 @@ function Project() {
       date: '16.02.2024',
       title: 'Khoa học kỹ thuật cấp thành phố',
       text:'Dự án này là một phần của cuộc thi khoa học kỹ thuật cấp thành phố, nơi chúng tôi đã nghiên cứu và phát triển một giải pháp sáng tạo để giải quyết các vấn đề thực tiễn. Chúng tôi đã làm việc chăm chỉ để hoàn thiện dự án và rất tự hào về những gì đã đạt được.',
-      imageUrl: 'https://scontent.fhan5-3.fna.fbcdn.net/v/t39.30808-6/470234132_940687131501054_1164045319708711557_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGiqDAjc1XatpF2RibA0M5D0adeYPQcXOXRp15g9Bxc5c4Z7KpFSrmx-wt6Nju5TMzHEXx3IEflBgrWSWziDKXW&_nc_ohc=XUZWyoRSbxUQ7kNvgHB7hUO&_nc_zt=23&_nc_ht=scontent.fhan5-3.fna&_nc_gid=AnUziAMkoTLxuHkb44SblNR&oh=00_AYBAT-ZC_VgOLAt-_TC9OIRaS2M-vp7ICY9ZYs0qwJJL3A&oe=67A51B18',
+      imageUrl: khkt,
     },
     {
       date: '13.06.2024',
@@ -93,15 +94,12 @@ function Project() {
 
           <div className="arrows">
             <button onClick={handlePrevSlide} title="Previous" className="arrow slider-link prev">
-              {/* Prev */}
             </button>
             <button onClick={handleNextSlide} title="Next" className="arrow slider-link next">
-              {/* Next */}
             </button>
           </div>
         </div>
       </section>
-      <BottomNav />
     </>
   );
 }

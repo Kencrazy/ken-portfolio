@@ -1,4 +1,14 @@
-export const screenElments = [
+import yungkai from "../assets/music/blue_yung.m4a"
+import telescope from "../assets/music/telescope.m4a"
+import pombeii from "../assets/music/pombeii.m4a"
+import hers from "../assets/music/hers.mp3"
+import copacabana from "../assets/music/copacabana.mp3"
+import wonder_of_u from "../assets/music/wonder_of_u.mp3"
+
+import WebsiteEcommerceTemplate1 from "../screens/ServiceShelf/ServiceDetail/projects/website/ecommerce/template1"
+import thumbnailWebsiteEcommerceTemplate1 from "../assets/thumbnailwet1.png"
+
+export const screenElements = [
     {id:1, name: 'Home', path: '/',iconName: 'home-outline',activeColor:'#f55b49'},
     {id:6, name: 'Project', path: '/project',iconName: 'brush-outline',activeColor:'#d072e8'},
     {id:4, name: 'Services', path: '/services',iconName: 'cart-outline',activeColor:'#e38a2b'},
@@ -7,8 +17,62 @@ export const screenElments = [
     {id:5, name: 'Portfolio', path: '/portfolio',iconName: 'trophy-outline',activeColor:'#dba309'},
 ]
 
-export const socialLinks = [
-    {id:1,name:'Facebook',iconName:'logo-facebook',url:'https://www.facebook.com/Makakensa'},
-    {id:2,name:'Github',iconName:'logo-github',url:'https://github.com/Kencrazy'}
+export const musicList = [
+    {id: 1, name: "yung kai - blue", audio: yungkai},
+    {id: 2, name: "Telescope - Tim Legend", audio: telescope},
+    {id: 3, name: "Pombeii - Bastille", audio: pombeii},
+    {id: 4, name: "Hers - Harvey", audio: hers},
+    {id: 5, name: "Copacabana - Barry Manilow", audio: copacabana},
+    {id: 6, name: "Wonder of You - Elvis Presley", audio: wonder_of_u}
 ]
 
+export const serviceDetail = {
+  ecommerce: {
+    adminLink: "https://kencrazy.github.io/admin-keyview/",
+    templates: [
+      {
+        title: "E-commerce Template 1",
+        description: "A modern e-commerce template with secure payment integration and inventory management.",
+        image: thumbnailWebsiteEcommerceTemplate1,
+        isComplete:true,
+        template: <WebsiteEcommerceTemplate1/>,
+      },
+    ],
+  },
+  portfolio: {
+    adminLink: "", 
+    templates: [
+     
+    ],
+  },
+  blog: {
+    adminLink: "", 
+    templates: [
+   
+    ],
+  },
+  landing: {
+    adminLink: "", 
+    templates: [
+      
+    ],
+  },
+  nonprofit: {
+    adminLink: "", 
+    templates: [
+     
+    ],
+  },
+  education: {
+    adminLink: "", 
+    templates: [
+   
+    ],
+  },
+  membership: {
+    adminLink: "", 
+    templates: [
+      
+    ],
+  },
+};

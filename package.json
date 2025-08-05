@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": true,
-  "homepage":"https://kencrazy.github.io/ken-portfolio/",
+  "homepage": "https://kencrazy.github.io/ken-portfolio/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -9,11 +9,12 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.0",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^12.0.6",
     "gh-pages": "^6.3.0",
     "gsap": "^3.12.7",
