@@ -8,6 +8,9 @@ import wonder_of_u from "../assets/music/wonder_of_u.mp3"
 import WebsiteEcommerceTemplate1 from "../screens/ServiceShelf/ServiceDetail/projects/website/ecommerce/template1"
 import thumbnailWebsiteEcommerceTemplate1 from "../assets/thumbnailwet1.png"
 
+import WebsiteEcommerceTemplate2 from "../screens/ServiceShelf/ServiceDetail/projects/website/ecommerce/template2"
+import thumbnailWebsiteEcommerceTemplate2 from "../assets/designwet2.png"
+
 export const screenElements = [
     {id:1, name: 'Home', path: '/',iconName: 'home-outline',activeColor:'#f55b49'},
     {id:6, name: 'Project', path: '/project',iconName: 'brush-outline',activeColor:'#d072e8'},
@@ -37,6 +40,7 @@ export const serviceDetail = {
         isComplete:true,
         template: <WebsiteEcommerceTemplate1/>,
       },
+      
     ],
   },
   portfolio: {
