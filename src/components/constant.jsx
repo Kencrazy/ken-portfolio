@@ -40,7 +40,13 @@ export const serviceDetail = {
         isComplete:true,
         template: <WebsiteEcommerceTemplate1/>,
       },
-      
+      {
+        title: "E-commerce Template 2",
+        description: "A sleek e-commerce template with user-friendly navigation and customizable product pages.",
+        image: thumbnailWebsiteEcommerceTemplate2,
+        isComplete:true,
+        template: <WebsiteEcommerceTemplate2/>,
+      }
     ],
   },
   portfolio: {
