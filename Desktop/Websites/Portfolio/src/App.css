@@ -1,0 +1,203 @@
+.container {
+  height: 70vh;
+}
+
+.card {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+}
+
+.loader {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 2rem; /* Use rem for better scalability */
+  box-sizing: content-box;
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(88, 86, 86, 0.1);
+}
+
+@media (max-width: 786px) {
+  .loader {
+    height: 120px;
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+}
+
+.words {
+  overflow: hidden;
+  position: relative;
+}
+
+.words::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--bg-color) 10%,
+    transparent 30%,
+    transparent 70%,
+    var(--bg-color) 90%
+  );
+  z-index: 20;
+}
+
+.word {
+  display: block;
+  height: 100%;
+  padding-left: 6px;
+  color: white;
+  animation: spin_4991 10s infinite;
+}
+
+@keyframes spin_4991 {
+  10% {
+    transform: translateY(-102%);
+  }
+  25% {
+    transform: translateY(-100%);
+  }
+  35% {
+    transform: translateY(-202%);
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  60% {
+    transform: translateY(-302%);
+  }
+  75% {
+    transform: translateY(-300%);
+  }
+  85% {
+    transform: translateY(-402%);
+  }
+  100% {
+    transform: translateY(-400%);
+  }
+}
+
+.code-editor {
+  max-width: 90%; /* Make it responsive */
+  background-color: #1d1e22;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 2px;
+  transform: translateY(-15%);
+}
+
+.editor-content {
+  margin: 0 10px 10px;
+  color: white;
+}
+
+.property {
+  margin-left: 30px;
+}
+
+.property:hover {
+  cursor: text;
+}
+
+.editor-content .color-0 {
+  color: rgb(86, 156, 214);
+}
+
+.editor-content .color-1 {
+  color: rgb(182, 206, 168);
+}
+
+.card2 {
+  width: 100%; /* Make it responsive */
+  max-width: 150px; /* Limit max width */
+  height: 170px;
+  background: #07182E;
+  border-radius: 5px;
+  text-align: center;
+  color: #f0f0f0;
+  overflow: hidden;
+  font-family: inherit;
+  z-index: 1;
+  transform: rotate(-10deg);
+}
+
+.img {
+  display: flex;
+  margin: 20px auto 10px auto;
+  width: 75px;
+  height: 75px;
+  border: 1px solid #f0f0f0;
+  border-radius: 50%;
+  font-size: 11px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  z-index: 99;
+  background-color: #152f50;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card2 p {
+  opacity: 0;
+  transition: all 0.5s;
+  justify-content: center;
+}
+
+.vscode {
+  transform: rotate(10deg);
+}
+
+.heading {
+  padding: 10px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+svg {
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.card2:hover .img {
+  transform: scale(1.1);
+  border: 1px solid #f0f0f0;
+}
+
+.card2:hover h1,
+.card2:hover p {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 786px) {
+  .container{
+    width: 100%;
+  }
+  .card2 {
+    width: 20%; /* Make card2 take more width on small screens */
+    height: 150px; /* Allow height to adjust */
+  }
+
+  .img {
+    width: 50px; /* Adjust icon size */
+    height: 50px;
+  }
+
+  .heading {
+    font-size: 16px; /* Adjust font size */
+  }
+  .code-editor{
+    width: 30%;
+    height: 30%;
+  }
+}
+
