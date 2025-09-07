@@ -2,7 +2,7 @@ import React from 'react';
 import designwet2 from '../../../../../../assets/designwet2.png';
 import aboutwet2 from '../../../../../../assets/aboutwet2.png';
 import contactwet2 from '../../../../../../assets/contactwet2.png';
-
+// hi
 const WebsiteEcommerceTemplate2 = () => {
   return (
     <div className="w-full h-full min-h-screen flex flex-col bg-gray-100">
@@ -69,3 +69,4 @@ const WebsiteEcommerceTemplate2 = () => {
 };
 
 export default WebsiteEcommerceTemplate2;
+// Done
